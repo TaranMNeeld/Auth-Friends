@@ -1,9 +1,8 @@
 import React from 'react';
-//implement a spinny thing if isLoadingx
-import Loader from 'react-loader-spinner';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 import FriendCard from './FriendCard';
 import AddFriendForm from './AddFriendForm';
+import './Friend.css';
 
 class FriendsList extends React.Component {
     state = {
@@ -32,17 +31,19 @@ class FriendsList extends React.Component {
         return (
             <div>
                 <AddFriendForm />
-                {this.state.friendsData.map(friends => (
-                    friends.map(friend => {
-                        return <FriendCard
-                            key={friend.id}
-                            id={friend.id}
-                            name={friend.name}
-                            age={friend.age}
-                            email={friend.email}
-                            selected={this.selectFriend} />
-                    })
-                ))}
+                <div className="friends-list">
+                    {this.state.friendsData.map(friends => (
+                        friends.map(friend => {
+                            return <FriendCard
+                                key={friend.id}
+                                id={friend.id}
+                                name={friend.name}
+                                age={friend.age}
+                                email={friend.email}
+                                selected={this.selectFriend} />
+                        })
+                    ))}
+                </div>
             </div>
         );
     }

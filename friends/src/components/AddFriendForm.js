@@ -1,24 +1,27 @@
 import React, { useState } from "react";
 import { axiosWithAuth } from '../utils/axiosWithAuth';
+import './Friend.css';
 
 const AddFriendForm = () => {
 
     const [friend, setFriend] = useState({ id: Date.now(), name: '', age: '', email: '' });
 
     const addFriend = event => {
-        axiosWithAuth().post('/friends', friend)
-            .then(res => {
-                console.log(friend);
-            })
-            .catch(err => console.log(err))
-        setFriend({ id: '' , name: '', height: '', age: ''});
+        if (friend.name !== '' && friend.age !== '' && friend.email !== '') {
+            axiosWithAuth().post('/friends', friend)
+                .then(res => {
+                    console.log(friend);
+                })
+                .catch(err => console.log(err))
+            setFriend({ id: '', name: '', height: '', age: '' });
+        }
     };
 
     return (
         <div className='form-div'>
-            <form className='friend-form'>
+            <form>
                 <input
-                    className='friend-field'
+                    className='form-field'
                     type='text'
                     name='name'
                     placeholder='name'
@@ -26,7 +29,7 @@ const AddFriendForm = () => {
                     onChange={({ target }) => setFriend({ ...friend, [target.name]: target.value })}
                 />
                 <input
-                    className='friend-field'
+                    className='form-field'
                     type='text'
                     name='age'
                     placeholder='age'
@@ -34,7 +37,7 @@ const AddFriendForm = () => {
                     onChange={({ target }) => setFriend({ ...friend, [target.name]: target.value })}
                 />
                 <input
-                    className='friend-field'
+                    className='form-field'
                     type='text'
                     name='email'
                     placeholder='email'

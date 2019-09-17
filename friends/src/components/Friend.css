@@ -1,11 +1,29 @@
+/*Friend Card*/
 .friend-card {
-    max-width: 300px;
-    display: flex;
+    width     : 350px;
+    margin: 25px auto 25px auto;
+    display       : flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    border: 1px solid black;
+    border        : 1px solid black;
 }
 
 .friend-card:hover {
     border: 2px solid blue;
+}
+
+/*Friends List*/
+.friends-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+}
+
+/*Form*/
+.form-div {
+    margin   : auto;
+    max-width: 1000px;
+}
+
+.form-field {
+    margin: 25px;
 }

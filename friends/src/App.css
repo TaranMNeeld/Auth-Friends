@@ -1,4 +1,6 @@
 .App {
+  margin: auto;
+  max-width: 1400px;
   text-align: center;
 }
 
@@ -23,11 +25,12 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navigation {
+  display: flex;
+  border-bottom: 1px solid grey;
+}
+
+.nav-item {
+  max-width: 150px;
+  margin: 10px;
 }
