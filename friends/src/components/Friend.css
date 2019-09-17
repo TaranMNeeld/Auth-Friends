@@ -1,0 +1,11 @@
+.friend-card {
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border: 1px solid black;
+}
+
+.friend-card:hover {
+    border: 2px solid blue;
+}
